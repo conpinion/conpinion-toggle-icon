@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>conpinion-toggle-icon basic toggle tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="../lib/webcomponentsjs/webcomponents.js"></script>
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/test-fixture/test-fixture-mocha.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+  <link rel="import" href="../lib/test-fixture/test-fixture.html">
+  <link rel="import" href="../build/conpinion-toggle-icon.html">
+</head>
+
+<body>
+
+  <test-fixture id="initially-inactive">
+    <template>
+      <conpinion-toggle-icon active-icon="activeIcon" inactive-icon="inactiveIcon"></conpinion-toggle-icon>
+    </template>
+  </test-fixture>
+
+  <script type="text/coffeescript">
+
+    element = null
+
+    describe 'setting the "active" attribute to true', ->
+
+      beforeEach -> element = fixture 'initially-inactive'
+
+      it 'should show the active icon', ->
+        element.active = true
+        expect(element.querySelector('iron-icon').icon).to.equal 'activeIcon'
+
+    describe 'setting the "active" attribute to true and back to false', ->
+
+      beforeEach -> element = fixture 'initially-inactive'
+
+      it 'should show the inactive icon', ->
+        element.active = true
+        element.active = false
+        expect(element.querySelector('iron-icon').icon).to.equal 'inactiveIcon'
+
+  </script>
+
+</body>
+
+</html>

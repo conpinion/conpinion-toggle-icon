@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>conpinion-toggle-icon web component</title>
+  <script src='lib/webcomponentsjs/webcomponents-lite.min.js'></script>
+  <link rel="import" href="build/conpinion-toggle-icon.html">
+</head>
+
+<body>
+
+  <h1>conpinion-toggle-icon web component</h1>
+
+  <h2>A toggle icon web component</h2>
+
+  <p>
+    <a href="test/index.html">Click here to run the tests...</a>
+  </p>
+  <p>
+    <a href="README.md">Click here to read the documentation...</a>
+  </p>
+  <p>
+    <a href="CHANGELOG.md">Click here to read the changelog...</a>
+  </p>
+
+  <h2>Demo</h2>
+
+  <template is="dom-bind">
+    <div>
+      <div on-click="toggleIcon">Click here to toggle the icon</div>
+      <p>
+        <conpinion-toggle-icon active-icon="done" inactive-icon="help" active="[[active]]"></conpinion-toggle-icon>
+      </p>
+    </div>
+  </template>
+
+  <script>
+    var t = document.querySelector('template');
+    t.active = false;
+    t.toggleIcon = function() {
+      t.active = !t.active;
+    };
+  </script>
+
+  <script src="//localhost:35729/livereload.js"></script>
+
+</body>
+
+</html>

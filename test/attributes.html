@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>conpinion-toggle-icon attributes tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="../lib/webcomponentsjs/webcomponents.js"></script>
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/test-fixture/test-fixture-mocha.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+  <link rel="import" href="../lib/test-fixture/test-fixture.html">
+  <link rel="import" href="../build/conpinion-toggle-icon.html">
+</head>
+
+<body>
+
+  <test-fixture id="default-attributes">
+    <template>
+      <conpinion-toggle-icon></conpinion-toggle-icon>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="when-active">
+    <template>
+      <conpinion-toggle-icon active-icon="activeIcon" inactive-icon="inactiveIcon" active></conpinion-toggle-icon>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="when-inactive">
+    <template>
+      <conpinion-toggle-icon active-icon="activeIcon" inactive-icon="inactiveIcon"></conpinion-toggle-icon>
+    </template>
+  </test-fixture>
+
+  <script type="text/coffeescript">
+
+    element = null
+
+    describe 'default attributes', ->
+
+      beforeEach -> element = fixture 'default-attributes'
+
+      it 'should be inactive by default', ->
+        expect(element.active).to.be.false
+
+    describe '"active" attribute', ->
+
+      describe 'when set to true', ->
+
+        beforeEach -> element = fixture 'when-active'
+
+        it 'should show the active icon', ->
+            expect(element.querySelector('iron-icon').icon).to.equal 'activeIcon'
+
+      describe 'when set to false', ->
+
+        beforeEach -> element = fixture 'when-inactive'
+
+        it 'should show the inactive icon', ->
+          expect(element.querySelector('iron-icon').icon).to.equal 'inactiveIcon'
+
+  </script>
+
+</body>
+
+</html>

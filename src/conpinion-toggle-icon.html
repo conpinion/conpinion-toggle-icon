@@ -1,0 +1,23 @@
+<!-- build:process -->
+<!--
+<%= copyright %>
+Element: <%= pkg.name %>
+Version: <%= pkg.version %>
+Description: <%= pkg.description %>
+-->
+<!-- /build -->
+
+<link rel="import" href="../lib/iron-icon/iron-icon.html">
+<link rel="import" href="../lib/iron-icons/iron-icons.html">
+
+<dom-module id="conpinion-toggle-icon">
+
+ <template>
+   <iron-icon icon="[[_icon(activeIcon, inactiveIcon, active)]]"></iron-icon>
+ </template>
+
+  <!-- build:script inline conpinion-toggle-icon -->
+  <script src="conpinion-toggle-icon.js"></script>
+  <!-- /build -->
+
+</dom-module>

@@ -1,0 +1,48 @@
+<!--
+Copyright (c) 2015 TELCAT MULTICOM GmbH. All rights reserved.
+Copyright (c) 2016 conpinion GbR. All rights reserved.
+
+Element: conpinion-toggle-icon
+Version: 0.1.2
+Description: A toggle icon
+-->
+
+
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="conpinion-toggle-icon">
+
+    <template>
+   <iron-icon icon="[[_icon(activeIcon, inactiveIcon, active)]]"></iron-icon>
+ </template>
+
+    <script type="text/javascript">
+        (function() {
+            Polymer({
+                is: 'conpinion-toggle-icon',
+                properties: {
+                    activeIcon: {
+                        type: String
+                    },
+                    inactiveIcon: {
+                        type: String
+                    },
+                    active: {
+                        type: Boolean,
+                        value: false
+                    }
+                },
+                _icon: function(activeIcon, inactiveIcon, active) {
+                    if (this.active) {
+                        return this.activeIcon;
+                    } else {
+                        return this.inactiveIcon;
+                    }
+                }
+            });
+
+        }).call(this);
+    </script>
+
+</dom-module>
